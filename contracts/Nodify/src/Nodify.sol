@@ -8,19 +8,18 @@ contract Nodify {
         uint blockTimestamp;
         uint postedTimestamp;
         uint PPScore;
-        uint attestation; // todo check this data type
+        uint8 credibility;
         string URILocation;
         string geolocation;
-        uint zkProofHash;
+        //uint zkProofHash;
     }
 
     // Events
-    event postMsg (string message, uint totalMessages, address messenger, uint timestamp);
+    // event postMsg (string message, uint totalMessages, address messenger, uint timestamp);
 
     // Global Variables
+    mapping (address => MediaPost[]) public postsByPoster;
     uint public totalPosts;
-    MediaPost[] public mediaPosts;
-    uint public latestPost;
     address private owner;
 
     constructor() {
@@ -29,33 +28,33 @@ contract Nodify {
 
     function createPost(
         string memory _msg,
-        address _poster,
         uint _postedTimestamp,
         uint _PPScore,
         string memory _URI,
-        string _location)
+        uint8 attestation,
+        string memory _location)
         public {
 
         // create a hash of the message content
         bytes32 msgHash = keccak256(abi.encodePacked(_msg));
 
-        // TODO integrate with 
-        
         MediaPost memory newPost = MediaPost({
             msgHash: msgHash,
-            poster: _poster,
+            poster: msg.sender,
             blockTimestamp: block.timestamp,
             postedTimestamp: _postedTimestamp,
             PPScore: _PPScore,
-            attestation: attestation,
+            credibility: attestation,
             URILocation: _URI,
-            location: _location
+            geolocation: _location
         });
+
         // append the media post to the array of media posts 
+        postsByPoster[msg.sender].push(newPost);
     }
 
-    function retrievePost(address user) public view returns (MediaPost memory) {
-
+    function retrievePost(address poster) public view returns (MediaPost[] memory) {
+        return postsByPoster[poster];
     }
 
 }
