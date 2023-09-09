@@ -1,19 +1,17 @@
-import { Route, Routes} from "react-router-dom"
+import { Routes, Route } from "react-router-dom";
+import Layout from "./Layout/Layout";
+import Home from "./pages/Home/Home"
 import './App.css';
-import Home from "./pages/Home/Home";
-import TwitterPost from "./pages/TwitterPost/TwitterPost";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
+    <div className="wrapper">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="/twitterpost" element={<TwitterPost />} />
+          <Route index element={<Home />} />
         </Route>
       </Routes>
     </div>
   );
 }
-
-export default App;
