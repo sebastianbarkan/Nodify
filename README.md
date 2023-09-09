@@ -8,8 +8,8 @@ Using Gitcoin Passport to help citizen journalism flourish on-chain and establis
 		The inspiration for Nodify emerged from the growing need to address climate change at a hyperlocal level and the desire to empower local communities in managing their energy resources.
 		
 
-		**The Problem**
-		Sustainable energy growth faces hurdles:
+**The Problem**
+Sustainable energy growth faces hurdles:
 		
 
 		1. Governance: creating a community with trusted parties. 
