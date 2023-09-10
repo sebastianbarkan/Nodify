@@ -4,11 +4,11 @@ Nodify enables Citizen Journalism using web3 technologies.
 Using Gitcoin Passport to help citizen journalism flourish on-chain and establishing a link between news media, crowdfunding to finance journalism, and earnings for contribution to the verified journalism ecosystem.
 
 # Inspiration
-The inspiration for Nodify emerged from the growing need to address fake media content.
+The inspiration for Nodify emerged from the growing need to address falsified media content.
 
 # The Problem
-Fake media content, particularly on social media, is a growing problem:
-1.	Fake Photo Location: unable to verify the location of a photograph.
+False content, particularly on social media, is a growing problem:
+1.	Falsified Photo Location: unable to verify the location of a photograph.
 2.	Fake Photo Time: unable to verify the time a photograph was taken.
 3.	Credibility of Photo Poster: unable to verify the credibility of the person who posted the photo.
 
@@ -20,10 +20,10 @@ Github Repo: https://github.com/sebastianbarkan/Nodify/
 
 # Our Solution
 A dApp that allows users to:
-1.	Verify the location of a photograph.
-2. Verify the time a photograph was taken.
-3. Verify the credibility of the person who posted the photo.
-4. Post 
+1. Post 
+2.	Verify the geo location of content based on metadata.
+3. Verify the time a photograph was taken with a blockchain hash.
+4. Verify the credibility of the person who posted the photo using Gitcoin Passport.
 
 # How we built it
 
