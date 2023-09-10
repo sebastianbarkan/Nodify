@@ -34,7 +34,7 @@ A dApp that allows users to:
 - zkSync
  
 # Smart Contract Functionalities:
-= On-chain verification of user's Gitcoin Passport Score
+- On-chain verification of user's Gitcoin Passport Score
 
 # What we learned
 We learned that hacking a fully functioning Citizen Journalism app in 24 hours is very challenging.
