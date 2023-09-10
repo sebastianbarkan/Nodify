@@ -4,7 +4,7 @@ import React, { useRef, useState } from 'react'
 import EXIF from "exif-js";
 
 export default function TakePhoto() {
-
+    const [selectedFile, setSelectedFile] = useState(null)
     const webcamRef = useRef(null);
     const [imgSrc, setImgSrc] = useState(null);
     const [photoDataUrl, setPhotoDataUrl] = useState(null);
@@ -12,9 +12,9 @@ export default function TakePhoto() {
     const capturePhoto = () => {
         const photoDataUrl = webcamRef.current.getScreenshot();
         const blob = dataURItoBlob(photoDataUrl);
-        
+
         console.log(photoDataUrl)
-      
+
         EXIF.getData(blob, function () {
             var exifData = EXIF.pretty(this);
             if (exifData) {
@@ -42,6 +42,58 @@ export default function TakePhoto() {
         return blob;
     }
 
+
+    // Function to handle file selection
+    const handleFileSelect = (event) => {
+        const file = event.target.files[0]; // Get the first selected file
+
+        const blob = file
+        EXIF.getData(blob, function () {
+
+            const exifData = EXIF.getAllTags(this);
+            if (exifData) {
+                console.log(exifData);
+
+                const gpsLatitudeRef = exifData.GPSLatitudeRef;
+                const gpsLatitude = parseGpsCoordinates(exifData.GPSLatitude);
+                console.log("Latitude Reference:", gpsLatitude);
+                console.log(EXIF.getTag(this, "Orientation"));
+            } else {
+                console.log("No EXIF data found in image.");
+            }
+        });
+
+        setSelectedFile(file);
+        setPhotoDataUrl(file)
+    };
+
+    // Helper function to parse GPS coordinates from an array
+    function parseGpsCoordinates(gpsArray) {
+        if (!Array.isArray(gpsArray) || gpsArray.length !== 3) {
+            return undefined;
+        }
+
+        const degrees = gpsArray[0];
+        const minutes = gpsArray[1];
+        const seconds = gpsArray[2];
+
+        // Calculate the decimal degree value
+        const decimalDegrees = degrees + minutes / 60 + seconds / 3600;
+
+        return decimalDegrees;
+    }
+
+    // Function to handle file upload (you can send the file to your server here)
+    const handleFileUpload = () => {
+        if (selectedFile) {
+            // You can perform any actions here with the selected file, e.g., send it to your server using an API.
+            // For simplicity, we're just logging the file details.
+            console.log("Selected File:", selectedFile);
+        } else {
+            console.log("No file selected.");
+        }
+    };
+
     return (
         <main className={styles.wrapper}>
             <div className={styles.webcam}>
@@ -55,9 +107,11 @@ export default function TakePhoto() {
                 )}
             </div>
 
-            <div className="btn-container">
+            {/* <div className="btn-container">
                 <button onClick={capturePhoto}>Capture photo</button>
-            </div>
+            </div> */}
+            <input type="file" accept="image/*" onChange={handleFileSelect} />
+            <button onClick={handleFileUpload}>Upload Photo</button>
         </main>
     );
 }
