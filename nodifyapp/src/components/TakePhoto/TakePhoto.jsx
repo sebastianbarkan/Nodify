@@ -2,6 +2,7 @@ import styles from "./TakePhoto.module.css";
 import Webcam from "react-webcam";
 import React, { useRef, useState } from "react";
 import EXIF from "exif-js";
+import { Web3Storage, getFilesFromPath } from 'web3.storage'
 
 export default function TakePhoto({setMedia}) {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -100,8 +101,16 @@ export default function TakePhoto({setMedia}) {
     }
 
     // Function to handle file upload (you can send the file to your server here)
-    const handleFileUpload = () => {
+    const handleFileUpload = async () => {
         if (selectedFile) {
+            let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweEUzRTk2YzRGMWQ4ZWE5MTdiMzc3MUZGMzQwNzM5QWU2NDdEZDRFMzciLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2OTQzMjM0OTYyMTIsIm5hbWUiOiJleWUgcGVlIGVmZmVjdHMgIn0.580awrN7e3cJu65D1i-vV1yfst1KtE1sqsu3x3nAzng"
+            const storage = new Web3Storage({ token })
+            const files = []
+            files.push(selectedFile)
+            console.log(`Uploading ${files.length} files`)
+            const cid = await storage.put(files)
+            console.log('Content added with CID:', cid)
+
             // You can perform any actions here with the selected file, e.g., send it to your server using an API.
             // For simplicity, we're just logging the file details.
             console.log("Selected File:", selectedFile);
