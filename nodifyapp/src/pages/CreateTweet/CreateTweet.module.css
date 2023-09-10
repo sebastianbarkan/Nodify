@@ -36,3 +36,12 @@
     color: white;
     cursor: pointer;
 }
+
+.btn-create {
+    background-color: rgb(0, 153, 255);
+    font-size: 1.25rem;
+    border-radius: 8px;
+    padding: .45rem 1rem;
+    color: white;
+    border: none;
+}

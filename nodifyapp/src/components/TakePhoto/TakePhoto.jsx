@@ -4,7 +4,7 @@ import React, { useRef, useState } from "react";
 import EXIF from "exif-js";
 import { Web3Storage, getFilesFromPath } from 'web3.storage'
 
-export default function TakePhoto({setMedia}) {
+export default function TakePhoto({ setMedia }) {
     const [selectedFile, setSelectedFile] = useState(null);
     const webcamRef = useRef(null);
     const [imgSrc, setImgSrc] = useState(null);
@@ -13,7 +13,7 @@ export default function TakePhoto({setMedia}) {
 
     const capturePhoto = () => {
         const photoDataUrl = webcamRef.current.getScreenshot();
-        const blob = dataURItoBlob(photoDataUrl);
+        const blob = new Blob([photoDataUrl], { type: 'image/jpeg' })
 
         EXIF.getData(blob, function () {
             const exifData = EXIF.getAllTags(this);
@@ -27,7 +27,6 @@ export default function TakePhoto({setMedia}) {
                     meta: {
                         gpsLatitude,
                         gpsLongitude,
-                        
                     }
                 })
                 console.log(EXIF.getTag(this, "Orientation"));
@@ -45,19 +44,6 @@ export default function TakePhoto({setMedia}) {
         setShowRetakeButton(false);
     };
 
-    function dataURItoBlob(dataURI) {
-        const byteString = atob(dataURI.split(",")[1]);
-        const mimeString = dataURI.split(",")[0].split(":")[1].split(";")[0];
-        const ab = new ArrayBuffer(byteString.length);
-        const ia = new Uint8Array(ab);
-
-        for (let i = 0; i < byteString.length; i++) {
-            ia[i] = byteString.charCodeAt(i);
-        }
-
-        const blob = new Blob([ab], { type: mimeString });
-        return blob;
-    }
 
     // Function to handle file selection
     const handleFileSelect = (event) => {
@@ -68,8 +54,6 @@ export default function TakePhoto({setMedia}) {
             const exifData = EXIF.getAllTags(this);
             if (exifData) {
                 console.log(exifData);
-
-
                 const gpsLatitude = parseGpsCoordinates(exifData.GPSLatitude);
                 const gpsLongitude = parseGpsCoordinates(exifData.GPSLongitude);
                 console.log("Reference:", gpsLatitude, gpsLongitude);
@@ -109,6 +93,8 @@ export default function TakePhoto({setMedia}) {
             files.push(selectedFile)
             console.log(`Uploading ${files.length} files`)
             const cid = await storage.put(files)
+
+
             console.log('Content added with CID:', cid)
 
             // You can perform any actions here with the selected file, e.g., send it to your server using an API.
@@ -121,30 +107,27 @@ export default function TakePhoto({setMedia}) {
 
     return (
         <main className={styles.wrapper}>
-            <div className={styles.mediaWrap}>
-                <div className={styles.webcam}>
-                    {photoDataUrl ? (
-                        <img src={photoDataUrl} alt="Captured" height={200} />
-                    ) : (
-                        <Webcam ref={webcamRef} />
-                    )}
-                </div>
-                <div className={styles.buttonWrap}>
-                    {showRetakeButton ? (
-                        <div className="btn-container">
-                            <button onClick={retakePhoto} className={styles["btn-retake"]}>Retake Photo</button>
-                        </div>
-                    )
-                        :
-                        <div className="btn-container">
-                            <button onClick={capturePhoto} className={styles["btn-capture"]}>Capture photo</button>
-                        </div>
-                    }
-                    <input type="file" accept="image/*" onChange={handleFileSelect} />
-                    <button onClick={handleFileUpload}>Upload Photo</button>
-                </div>
+            <div className={styles.webcam}>
+                {photoDataUrl ? (
+                    <img src={photoDataUrl} alt="Captured" height={200} />
+                ) : (
+                    <Webcam ref={webcamRef} />
+                )}
             </div>
-            <form className={styles.form}></form>
+            <div className={styles.buttonWrap}>
+                {showRetakeButton ? (
+                    <div className="btn-container">
+                        <button onClick={retakePhoto} className={styles["btn-retake"]}>Retake Photo</button>
+                    </div>
+                )
+                    :
+                    <div className="btn-container">
+                        <button onClick={capturePhoto} className={styles["btn-capture"]}>Capture photo</button>
+                    </div>
+                }
+                <input type="file" accept="image/*" onChange={handleFileSelect} />
+                <button onClick={handleFileUpload}>Upload Photo</button>
+            </div>
         </main >
     );
 }

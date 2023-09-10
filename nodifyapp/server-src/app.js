@@ -6,7 +6,11 @@ import cors from 'cors'; // Import the cors middleware
 const app = express();
 
 // Enable CORS for all routes
-app.use(cors());
+const corsOptions = {
+    origin: 'http://localhost:3000',
+  };
+
+app.use(cors(corsOptions));
 
 // Use the tweet route.
 app.use('/api', tweetRoute);
