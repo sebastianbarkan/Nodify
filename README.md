@@ -1,33 +1,31 @@
 # Nodify
+Nodify enables Citizen Journalism using web3 technologies.
+
 Using Gitcoin Passport to help citizen journalism flourish on-chain and establishing a link between news media, crowdfunding to finance journalism, and earnings for contribution to the verified journalism ecosystem.
 
 # Inspiration
-The inspiration for Nodify emerged from the growing need to address climate change at a hyperlocal level and the desire to empower local communities in managing their energy resources.
+The inspiration for Nodify emerged from the growing need to address fake media content.
 
 # The Problem
-Sustainable energy growth, particularly solar power, faces multiple hurdles:
-1.	Governance: lack of ability to easily create an energy sharing community with trusted parties. People want to opt in for sustainable energy like solar, but face hurdles and lack of community knowledge to do so.
-2.	Financing: difficulty finding access to the right capita for solar users and funders wanting an easier way to find & invest in projects.
-3.	Operational support: there is an urgent need for a clear path to peer-to peer local energy trading and connections to energy stakeholders (eg. power companies).
-With Nodify, anyone anywhere can transform their renewable energy resources into a vested community of energy sharing stakeholders.
-Imagine if you could be part of a solar energy community and contribute and earn from it while having both financial gains and a cleaner climate as the upside.
+Fake media content, particularly on social media, is a growing problem:
+1.	Fake Photo Location: unable to verify the location of a photograph.
+2.	Fake Photo Time: unable to verify the time a photograph was taken.
+3.	Credibility of Photo Poster: unable to verify the credibility of the person who posted the photo.
+
+With Nodify, anyone anywhere can verify where a photo was taken, the time that it was taken, and the credibility of the person who posted the photo.
 
 # Quick Links
 Project Demo: https:// 
 Github Repo: https://github.com/sebastianbarkan/Nodify/
-What it does
+
 # Our Solution
 A dApp that allows users to:
-1.	Create an energy community with DAO governance
-2.	Raise financing through a crowd lending campaign
-3.	Conduct peer-to-peer local energy trading with a dashboard to track your renewable energy positive impact
-Nodify is a DAO based platform designed to facilitate the management of energy communities. The platform is designed to facilitate energy community creation and crowdlending, which allows multiple investors to pool their money together to fund a project. The dApp enables individuals to build and join "energy communities" (group of people who can pool energy & resources) with DAO governance, create campaigns to raise funds for sustainable energy projects, and invest in sustainable energy and climate protection projects.
-We are leveraging Chainlink Functions to:
-1.	Fetch consumption and production data for your community members from the energy distributor.
-2.	Gather energy prices from the electricity market, presently inclusive of the Iberian Market—Portugal and Spain.
-3.	Fetch energy tariffs from the regulator, currently only in Portugal.
-4.	Execute an algorithm that calculates the equilibrium price and the transactions within your community every hour.
-How we built it
+1.	Verify the location of a photograph.
+2. Verify the time a photograph was taken.
+3. Verify the credibility of the person who posted the photo.
+4. Post 
+
+# How we built it
 
 **Tech stack:** React, Typescript, Tailwind, EVM-compatible smart contracts written in Solidity provides business logic and trust for the platform, IPFS to store images of energy community membership NFTs, Chainlink Functions with Automation, Magic Link
  
