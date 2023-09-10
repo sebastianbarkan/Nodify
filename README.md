@@ -1,29 +1,29 @@
 # Nodify
 Nodify enables Citizen Journalism using web3 technologies.
 
-Using Gitcoin Passport to help citizen journalism flourish on-chain and establishing a link between news media, crowdfunding to finance journalism, and earnings for contribution to the verified journalism ecosystem.
+Our main goal is using Gitcoin Passport verification beneifts to help citizen journalism flourish on-chain and establishing a link between news media, crowdfunding to finance journalism, and earnings for contribution to the verified journalism ecosystem.
 
 # Inspiration
-The inspiration for Nodify emerged from the growing need to address falsified media content.
+The inspiration for Nodify emerged from the growing need to address falsified media content on-line.
 
 # The Problem
 False content, particularly on social media, is a growing problem:
-1.	Falsified Photo Location: unable to verify the location of a photograph.
-2.	Falsified Time That Photo Was Taken: unable to verify the time a photograph was taken.
+1.	False Photo Location: unable to verify the location of a photograph.
+2.	False Time That Photo Was Taken: unable to verify the time a photograph was taken.
 3.	Credibility of Photo Poster: unable to verify the credibility of the person who posted the photo.
 
-With Nodify, anyone anywhere can verify where a photo was taken, the time that it was taken, and the credibility of the person who posted the photo.
+With Nodify, anyone anywhere can verify where a photo was taken, the time that it was taken, and the Gitcoin stamp based score credibility of the person who posted the photo.
 
 # Quick Links
-Project Demo: https:// 
+Project Demo: https://github.com/sebastianbarkan/Nodify/
 Github Repo: https://github.com/sebastianbarkan/Nodify/
 
 # Our Solution
 A dApp that allows users to:
 1. Post verified content.
-2.	Verify the geo location of content based on metadata.
-3. Verify the time a photograph was taken with a blockchain hash.
-4. Verify the credibility of the person who posted the photo using Gitcoin Passport.
+2.	Verify the geo location of content based on metadata, with a hash on chain for the provenenace of the photo.
+3. Verify the time a photograph was taken from in app camera viaa a blockchain hash.
+4. Crowdsource content moderation and the verification of the photos using Gitcoin Passport.
 
 # How we built it
 
@@ -35,8 +35,8 @@ A dApp that allows users to:
  
 # Smart Contract Functionalities:
 - On-chain verification of user's Gitcoin Passport Score
-- Privacy with EY Starlight
-- Deployed on Scroll Sepolia Testnet
+- Privacy of on-chain score with EY Starlight
+- Deployed on zkSyncEra Testnet
 - Time-Locked Wallet with zkSync
 
 # What we learned
