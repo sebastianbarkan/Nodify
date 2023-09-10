@@ -1,5 +1,5 @@
 # Nodify
-Nodify enables Citizen Journalism using web3 technologies.
+Nodify enables Citizen Journalism using web3 technologies. 
 
 Our main goal is using Gitcoin Passport verification beneifts to help citizen journalism flourish on-chain and establishing a link between news media, crowdfunding to finance journalism, and earnings for contribution to the verified journalism ecosystem.
 
@@ -28,6 +28,9 @@ A dApp that allows users to:
 # How we built it
 
 **Tech Stack:** 
+- React
+- Express
+- Solidity
 - Gitcoin Passport
 - EY
 - Scroll
