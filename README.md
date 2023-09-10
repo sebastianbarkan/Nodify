@@ -12,7 +12,7 @@ False content, particularly on social media, is a growing problem:
 2.	False Time That Photo Was Taken: unable to verify the time a photograph was taken.
 3.	Credibility of Photo Poster: unable to verify the credibility of the person who posted the photo.
 
-With Nodify, anyone anywhere can verify where a photo was taken, the time that it was taken, and the Gitcoin stamp based score credibility of the person who posted the photo.
+With Nodify, anyone anywhere can verify where a photo was taken, the time that it was taken, and the Gitcoin passport stamp based score credibility of the person who posted the photo.
 
 # Quick Links
 Project Demo: https://github.com/sebastianbarkan/Nodify/
