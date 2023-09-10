@@ -99,4 +99,8 @@ contract Nodify {
         require (msg.sender == owner, "Only Owner can change");
         nodifySchema = _schema;
     }
+    
+    function returnPPScore(address user, uint index) public view returns (uint) {
+        return postsByPoster[user][index].PPScore;
+    }
 }

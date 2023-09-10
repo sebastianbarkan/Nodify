@@ -9,7 +9,7 @@ The inspiration for Nodify emerged from the growing need to address falsified me
 # The Problem
 False content, particularly on social media, is a growing problem:
 1.	Falsified Photo Location: unable to verify the location of a photograph.
-2.	Fake Photo Time: unable to verify the time a photograph was taken.
+2.	Falsified Time That Photo Was Taken: unable to verify the time a photograph was taken.
 3.	Credibility of Photo Poster: unable to verify the credibility of the person who posted the photo.
 
 With Nodify, anyone anywhere can verify where a photo was taken, the time that it was taken, and the credibility of the person who posted the photo.
@@ -20,7 +20,7 @@ Github Repo: https://github.com/sebastianbarkan/Nodify/
 
 # Our Solution
 A dApp that allows users to:
-1. Post 
+1. Post verified content.
 2.	Verify the geo location of content based on metadata.
 3. Verify the time a photograph was taken with a blockchain hash.
 4. Verify the credibility of the person who posted the photo using Gitcoin Passport.
@@ -35,6 +35,9 @@ A dApp that allows users to:
  
 # Smart Contract Functionalities:
 - On-chain verification of user's Gitcoin Passport Score
+- Privacy with EY Starlight
+- Deployed on Scroll Sepolia Testnet
+- Time-Locked Wallet with zkSync
 
 # What we learned
 We learned that hacking a fully functioning Citizen Journalism app in 24 hours is very challenging.
