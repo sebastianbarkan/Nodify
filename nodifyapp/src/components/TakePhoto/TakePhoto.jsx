@@ -10,6 +10,7 @@ export default function TakePhoto({setMedia}) {
     const [imgSrc, setImgSrc] = useState(null);
     const [photoDataUrl, setPhotoDataUrl] = useState(null);
     const [showRetakeButton, setShowRetakeButton] = useState(false);
+    const [fileName, setFileName] = useState("");
 
     const capturePhoto = () => {
         const photoDataUrl = webcamRef.current.getScreenshot();
@@ -107,6 +108,8 @@ export default function TakePhoto({setMedia}) {
             const storage = new Web3Storage({ token })
             const files = []
             files.push(selectedFile)
+            setFileName(selectedFile.name);
+            console.log('File name: ', selectedFile.name);
             console.log(`Uploading ${files.length} files`)
             const cid = await storage.put(files)
             console.log('Content added with CID:', cid)
