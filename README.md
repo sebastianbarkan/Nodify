@@ -37,7 +37,7 @@ A dApp that allows users to:
 = On-chain verification of user's Gitcoin Passport Score
 
 # What we learned
-We learned that hacking a fully functioning Citizen Journalism app in 24 hours is very difficult.
+We learned that hacking a fully functioning Citizen Journalism app in 24 hours is very challenging.
 
 # What's next for Nodify
 With the right funding we aim to enable Citizen Journalism by:
