@@ -45,11 +45,12 @@ Write one paragraph on which privacy solution you selected (and why).​
 We selected the EY Starlight privacy solution. This solution allows us to make certain data within our smart contract private so that bad actors are
 unable to access it.
 
-Create an Architecture diagram on how your solution will bridge between the public network and a privacy solution (ie: Nightfall).   
-Solidity contract --> Zolidity contract --> zappify --> zApp       ​
-
+Create an Architecture diagram on how your solution will bridge between the public network and a privacy solution (ie: Starlight).   
+Solidity contract --> Zolidity contract --> zappify --> zApp
+![Nodify Architecture EY Starlight](https://github.com/sebastianbarkan/Nodify/assets/111543202/c1e39d13-72f9-4050-bf61-bb08ae8059f7)
+       ​
 What services & connections will you use?          ​
-
-What data/tokens will be shared or transferred between networks?          ​
+EY Starlight
 
 What workflow(s) will be used under privacy?
+The Nodify Solidity Contract will be transpiled into a Zolidity Contract.
