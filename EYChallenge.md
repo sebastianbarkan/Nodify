@@ -34,11 +34,12 @@ Solution must be designed to run under privacy (implementation optional).​
 
 Write one paragraph on why your solution will benefit from implementing privacy.​
 
+Privacy in blockchain transactions is vital for safeguarding sensitive information and increasing user trust. Privacy is essential for our solution so we selected the "Starlight" ZKP protocol, and provide an architecture diagram showcasing how our solution bridges the gap between the public network and the privacy solution, along with the services, connections, data/tokens shared, and workflows used under privacy.
+
 Our solution will benefit from implementing privacy to protect citizen journalists from exposing their personal information.
 Citizen Journalists are encouraged to use our application to post their content to social media platforms. However, at times they may be
 covering news in dangerous parts of the world, which puts them at risk to having their information exposed to bad actors. By making this personal 
-information private, we can protect them from this negative situation
-
+information private, we can protect them from this negative situation.
 
 Write one paragraph on which privacy solution you selected (and why).​
 
