@@ -3,10 +3,36 @@
     width: 100%;
     justify-content: center;
     flex-direction: column;
+    row-gap: 1rem;
 }
 
 .webcam > :first-child {
     max-width: 100%;
     max-height: 330px;
     border-radius: 12px;
+}
+
+.toggle-wrap {
+    display: flex;
+    column-gap: 1rem;
+}
+
+.default {
+    border: none;
+    cursor: pointer;
+    background: none;
+    padding: .25rem 1rem;
+}
+
+.default:hover {
+    color: rgb(0, 153, 255);
+}
+
+.selected {
+    padding: .25rem 1rem;
+    background-color: rgb(0, 153, 255);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
 }

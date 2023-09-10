@@ -21,7 +21,7 @@ interface IERC1155 is IERC165 {
     );
 
     /// @dev
-    /// - Either `TransferSingle` or `TransferBatch` MUST emit when tokens are transferred, including zero value transfers as well as minting or burning (see "Safe Transfer Rules" section of the standard).
+    /// - Either `TransferSingle` or `TransferBatch` MUST emit when tokens are transferred, including zero value transfers as well as ing or burning (see "Safe Transfer Rules" section of the standard).
     /// - The `_operator` argument MUST be the address of an account/contract that is approved to make the transfer (SHOULD be msg.sender).
     /// - The `_from` argument MUST be the address of the holder whose balance is decreased.
     /// - The `_to` argument MUST be the address of the recipient whose balance is increased.

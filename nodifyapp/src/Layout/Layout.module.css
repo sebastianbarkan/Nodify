@@ -33,12 +33,16 @@
     background-color: rgb(0, 153, 255);
     text-decoration: none;
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 4px;
     color: white;
     padding: .25rem 1rem;
     font-weight: 500;
     font-family: 'Inter', sans-serif;
     font-size: .75rem;
+}
+
+.link-create-post:hover {
+    background-color: rgb(0, 70, 116);
 }
 
 .logo {

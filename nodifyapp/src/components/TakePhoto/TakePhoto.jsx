@@ -1,24 +1,34 @@
-import styles from "./TakePhoto.module.css"
+import styles from "./TakePhoto.module.css";
 import Webcam from "react-webcam";
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState } from "react";
 import EXIF from "exif-js";
 
-export default function TakePhoto() {
-    const [selectedFile, setSelectedFile] = useState(null)
+export default function TakePhoto({setMedia}) {
+    const [selectedFile, setSelectedFile] = useState(null);
     const webcamRef = useRef(null);
     const [imgSrc, setImgSrc] = useState(null);
     const [photoDataUrl, setPhotoDataUrl] = useState(null);
+    const [showRetakeButton, setShowRetakeButton] = useState(false);
 
     const capturePhoto = () => {
         const photoDataUrl = webcamRef.current.getScreenshot();
         const blob = dataURItoBlob(photoDataUrl);
 
-        console.log(photoDataUrl)
-
         EXIF.getData(blob, function () {
-            var exifData = EXIF.pretty(this);
+            const exifData = EXIF.getAllTags(this);
             if (exifData) {
                 console.log(exifData);
+                const gpsLatitude = parseGpsCoordinates(exifData.GPSLatitude);
+                const gpsLongitude = parseGpsCoordinates(exifData.GPSLongitude);
+                console.log("Reference:", gpsLatitude, gpsLongitude);
+                setMedia({
+                    data: blob,
+                    meta: {
+                        gpsLatitude,
+                        gpsLongitude,
+                        
+                    }
+                })
                 console.log(EXIF.getTag(this, "Orientation"));
             } else {
                 console.log("No EXIF data found in image.");
@@ -26,6 +36,12 @@ export default function TakePhoto() {
         });
 
         setPhotoDataUrl(photoDataUrl);
+        setShowRetakeButton(true);
+    };
+
+    const retakePhoto = () => {
+        setPhotoDataUrl(null);
+        setShowRetakeButton(false);
     };
 
     function dataURItoBlob(dataURI) {
@@ -42,21 +58,20 @@ export default function TakePhoto() {
         return blob;
     }
 
-
     // Function to handle file selection
     const handleFileSelect = (event) => {
         const file = event.target.files[0]; // Get the first selected file
 
-        const blob = file
+        const blob = file;
         EXIF.getData(blob, function () {
-
             const exifData = EXIF.getAllTags(this);
             if (exifData) {
                 console.log(exifData);
 
-                const gpsLatitudeRef = exifData.GPSLatitudeRef;
+
                 const gpsLatitude = parseGpsCoordinates(exifData.GPSLatitude);
-                console.log("Latitude Reference:", gpsLatitude);
+                const gpsLongitude = parseGpsCoordinates(exifData.GPSLongitude);
+                console.log("Reference:", gpsLatitude, gpsLongitude);
                 console.log(EXIF.getTag(this, "Orientation"));
             } else {
                 console.log("No EXIF data found in image.");
@@ -64,7 +79,8 @@ export default function TakePhoto() {
         });
 
         setSelectedFile(file);
-        setPhotoDataUrl(file)
+        setPhotoDataUrl(file);
+        setShowRetakeButton(true);
     };
 
     // Helper function to parse GPS coordinates from an array
@@ -96,23 +112,30 @@ export default function TakePhoto() {
 
     return (
         <main className={styles.wrapper}>
-            <div className={styles.webcam}>
-                {photoDataUrl ? (
-                    <div>
-                        <h2>Captured Photo:</h2>
-                        <img src={photoDataUrl} alt="Captured" />
-                    </div>
-                ) : (
-                    <Webcam ref={webcamRef} />
-                )}
+            <div className={styles.mediaWrap}>
+                <div className={styles.webcam}>
+                    {photoDataUrl ? (
+                        <img src={photoDataUrl} alt="Captured" height={200} />
+                    ) : (
+                        <Webcam ref={webcamRef} />
+                    )}
+                </div>
+                <div className={styles.buttonWrap}>
+                    {showRetakeButton ? (
+                        <div className="btn-container">
+                            <button onClick={retakePhoto} className={styles["btn-retake"]}>Retake Photo</button>
+                        </div>
+                    )
+                        :
+                        <div className="btn-container">
+                            <button onClick={capturePhoto} className={styles["btn-capture"]}>Capture photo</button>
+                        </div>
+                    }
+                    <input type="file" accept="image/*" onChange={handleFileSelect} />
+                    <button onClick={handleFileUpload}>Upload Photo</button>
+                </div>
             </div>
-
-            {/* <div className="btn-container">
-                <button onClick={capturePhoto}>Capture photo</button>
-            </div> */}
-            <input type="file" accept="image/*" onChange={handleFileSelect} />
-            <button onClick={handleFileUpload}>Upload Photo</button>
-        </main>
+            <form className={styles.form}></form>
+        </main >
     );
 }
-

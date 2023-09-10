@@ -4,9 +4,16 @@ import logo from "../assets/nodesymb.png"
 import textlogo from "../assets/textlogo.jpg"
 import { useLocation } from 'react-router-dom';
 
+
 export default function Layout() {
   const location = useLocation();
+
   console.log("LOCAT", location)
+
+  const signIn = () => {
+    
+  }
+
   return (
     <div className={styles.wrapper}>
       <section className={styles.phoneWrapper}>
@@ -16,6 +23,7 @@ export default function Layout() {
             <img src={textlogo} className={styles["text-logo"]} />
           </Link>
           <ul className={styles.ul}>
+            <button className={styles.SignIn} onClick={signIn}>Sign in</button>
             <li>
               <Link to="/createtweet" className={styles["link-create-post"]}>Create Post</Link>
             </li>
