@@ -15,7 +15,7 @@ False content, particularly on social media, is a growing problem:
 With Nodify, anyone anywhere can verify where a photo was taken, the time that it was taken, and the Gitcoin passport stamp based score credibility of the person who posted the photo.
 
 # Quick Links
-Project Demo: https://github.com/sebastianbarkan/Nodify/
+Project Demo Video: https://www.youtube.com/watch?v=SKKkLNzpRm4
 Github Repo: https://github.com/sebastianbarkan/Nodify/
 
 # Our Solution
