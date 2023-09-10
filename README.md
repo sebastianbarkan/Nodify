@@ -42,9 +42,12 @@ A dApp that allows users to:
 - Deployed on zkSyncEra Testnet
 - Time-Locked Wallet with zkSync
 - Attestation via EAS
+- EAS schema interfacing
+
 
 # What we learned
-We learned that building a fully functioning proof of concept of a Verified Citizen Journalism dApp in 24 hours is very challenging and rewarding.  We took up the challenge of incorporating Gitcoin Passport Scores, geographic meta data, and time stamps, and to build the most informative level of veracity for the proof of auntenticity of a photo for our users. We appreciated the good layout of the sponsor docs and learnt that by asking the right questions and using the resources avialable and speaking with the the sponsor teams on site we were able to learn a lot to continure building. Our solution works to bring the benefits and transparency of Web3 to a normally Web2 use case of journalism using Gitcoin and zkSync. We will work on solving the geogrpahic location containerization further as we test and further build out using EY Starlight and also look at what we learnt from attempting to builf our own Zk Proofs. We learned about attestations and the EAS. We created a custom schema for uploading picture data from our Nodify app. This schema interfaces with our custom contract, where we can create attestations
+We learned that building a fully functioning proof of concept of a Verified Citizen Journalism dApp in 24 hours is very challenging and rewarding.  We took up the challenge of incorporating Gitcoin Passport Scores, geographic meta data, and time stamps, and to build the most informative level of veracity for the proof of auntenticity of a photo for our users. We appreciated the good layout of the sponsor docs and learnt that by asking the right questions and using the resources avialable and speaking with the the sponsor teams on site we were able to learn a lot to continure building. Our solution works to bring the benefits and transparency of Web3 to a normally Web2 use case of journalism using Gitcoin and zkSync. We will work on solving the geogrpahic location containerization further as we test and further build out using EY Starlight and also look at what we learnt from attempting to builf our own Zk Proofs. We learned about attestations and the EAS. We created a custom schema for uploading picture data from our Nodify app. This schema interfaces with our custom contract, where we can create attestations. 
+Additionally, we learned about the gitcoin passport score. We incorporated a way to include the gitcoin passport score on-chain within our custom contract as part of the attestation schema.
 
 # What's next for Nodify
 With the right funding we aim to enable Citizen Journalism by:
